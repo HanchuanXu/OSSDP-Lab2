@@ -53,21 +53,41 @@ class Solution5 {
         Arrays.sort(nums);
 
         int ans = 0;
-        for (int i = 0; i < nums.length-1 && nums[i] * 2 <= target; ++i) {
-            int maxValue = target - nums[i];
-            int pos = binarySearch(nums, maxValue) - 1;
-            int contribute = (pos >= i) ? f[pos - i] : 0;
-            ans = (ans + contribute) / P;
+        int left = 0;
+        int right = nums.length - 1;
+
+        while (left <= right){
+            if (nums[left] + nums[right] <= target){
+                int contribute = powerOf2(right - left);
+                ans = (ans + contribute) % P;
+                left++;
+            }else{
+                right--;
+            }
         }
 
         return ans;
     }
 
     public void pretreatment() {
-        f[0] = 0;
+        f[0] = 1;
         for (int i = 1; i < MAX_N; ++i) {
             f[i] = (f[i - 1] << 1) % P;
         }
+    }
+
+    public int powerOf2(int n) {
+        if (n < 0) return 1; // 2^0 = 1
+        long result = 1;
+        long base = 2;
+        while (n > 0) {
+            if (n % 2 == 1) {
+                result = (result * base) % P;
+            }
+            base = (base * base) % P;
+            n /= 2;
+        }
+        return (int) result;
     }
 
     public int binarySearch(int[] nums, int target) {
