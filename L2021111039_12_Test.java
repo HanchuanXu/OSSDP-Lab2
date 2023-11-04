@@ -4,8 +4,9 @@ import static org.junit.Assert.assertEquals;
 
 public class L2021111039_12_Test {
     /*
+    测试目的：测试multiply方法
     划分等价类：
-    依据是否为0分为：均为正数、正数与0相乘、0与0相乘
+    依据是否为0分为：均为正数、正数与0相乘、0与0相乘（共三个测试用例）
      */
 
     @Test
@@ -24,8 +25,9 @@ public class L2021111039_12_Test {
     }
 
     /*
+    测试目的：测试addStrings方法
     划分等价类：
-    依据是否为0分为：均为正数、正数与0相加、0与0相加
+    依据是否为0分为：均为正数、正数与0相加、0与0相加（共三个测试用例）
      */
     @Test
     public void addStringsTest(){
