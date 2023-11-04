@@ -17,8 +17,8 @@ import java.util.*;
  */
 class Solution18 {
     public int[] productExceptSelf(int[] nums) {
-        int length = nums.length;
         if(nums == null)return null;
+        int length = nums.length;
         if(length>0){
         // L 和 R 分别表示左右两侧的乘积列表
         int[] L = new int[length];
