@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="junit4">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/../../../软件构造/实验/实验一/实验内容/lab1/lib/junit4.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
