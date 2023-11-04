@@ -57,7 +57,7 @@ public class Solution7 {
 
         // 第 1 步：将任意交换的结点对输入并查集
         int len = s.length();
-        UnionFind unionFind = new UnionFind(len-1);
+        UnionFind unionFind = new UnionFind(len);
         for (List<Integer> pair : pairs) {
             int index1 = pair.get(0);
             int index2 = pair.get(1);
@@ -68,9 +68,11 @@ public class Solution7 {
         char[] charArray = s.toCharArray();
         // key：连通分量的代表元，value：同一个连通分量的字符集合（保存在一个优先队列中）
         Map<Integer, PriorityQueue<Character>> hashMap = new HashMap<>(len);
-        for (int i = 0; i < len; i++)
+        for (int i = 0; i < len; i++){
             int root = unionFind.find(i);
             hashMap.computeIfAbsent(root, key -> new PriorityQueue<>()).offer(charArray[i]);
+        }
+
 
         // 第 3 步：重组字符串
         StringBuilder stringBuilder = new StringBuilder();
