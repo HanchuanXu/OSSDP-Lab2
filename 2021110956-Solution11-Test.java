@@ -3,6 +3,13 @@ import java.util.List;
 
 import static org.junit.Assert.*;
 
+/**
+ * 使用等价类划分
+ * 测试用例：
+ * {0,0,0}->[[0,0,0]]
+ * {1,2,3}->[]
+ * {-1,0,1,2,-1,-4} -> [[-1,-1,2],[-1,0,1]]
+ */
 public class SolutionTest {
 
     @org.junit.Test
