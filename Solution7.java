@@ -2,6 +2,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.PriorityQueue;
+import java.util.ArrayList;
+import java.util.Arrays;
 /**
  * @description:
  *
@@ -68,18 +70,18 @@ public class Solution7 {
         char[] charArray = s.toCharArray();
         // key：连通分量的代表元，value：同一个连通分量的字符集合（保存在一个优先队列中）
         Map<Integer, PriorityQueue<Character>> hashMap = new HashMap<>(len);
-        for (int i = 0; i < len; i++)
+        for (int i = 0; i < len; i++) {
             int root = unionFind.find(i);
             hashMap.computeIfAbsent(root, key -> new PriorityQueue<>()).offer(charArray[i]);
-
+        }
         // 第 3 步：重组字符串
         StringBuilder stringBuilder = new StringBuilder();
         for (int i = 0; i < len; i++) {
             int root = unionFind.find(i);
             stringBuilder.append(hashMap.get(root).poll());
-            stringBuilder.append(" ");
+            //stringBuilder.append("");
         }
-        return stringBuilder.toString();
+        return stringBuilder.toString().trim();
     }
 
     private class UnionFind {
@@ -91,9 +93,9 @@ public class Solution7 {
         private int[] rank;
 
         public UnionFind(int n) {
-            this.parent = new int[n];
-            this.rank = new int[n];
-            for (int i = 0; i < n; i++) {
+            this.parent = new int[n+1];
+            this.rank = new int[n+1];
+            for (int i = 0; i <= n; i++) {
                 this.parent[i] = i;
                 this.rank[i] = 1;
             }
@@ -125,5 +127,16 @@ public class Solution7 {
             }
             return parent[x];
         }
+    }
+    public static void main(String[] args) {
+        String s = "dcab";
+        List<List<Integer>> pairs = new ArrayList<>();
+        pairs.add(Arrays.asList(0, 3));
+        pairs.add(Arrays.asList(1, 2));
+
+        Solution7 solution = new Solution7();
+        String result = solution.smallestStringWithSwaps(s, pairs);
+
+        System.out.println("Result: " + result);
     }
 }
