@@ -44,20 +44,21 @@ class Solution4 {
                 int digit = (nums[i] / (int) exp) % 10;
                 cnt[digit]++;
             }
-            for (int i = 1; i < 10; i++){
+            for (int i = 1; i < 10; i++) {
                 cnt[i] += cnt[i - 1];
-            for (int i = n - 1; i >= 0; i--) {
-                int digit = (nums[i] / (int) exp) % 10;
-                buf[cnt[digit] - 1] = nums[i];
-                cnt[digit]--;
+                for (int j = n - 1; j >= 0; j--) {
+                    int digit = (nums[j] / (int) exp) % 10;
+                    buf[cnt[digit] - 1] = nums[j];
+                    cnt[digit]--;
+                }
+                System.arraycopy(buf, 0, nums, 0, n);
+                exp += 10;
             }
-            System.arraycopy(buf, 0, nums, 0, n);
-            exp += 10;
         }
-
         int ret = 0;
-            for (int i = 1; i < n; i++) {
+        for (int i = 1; i < n; i++) {
             ret = Math.max(ret, nums[i] - nums[i - 1]);
-        }return ret;
+        }
+        return ret;
     }
 }

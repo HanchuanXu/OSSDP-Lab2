@@ -68,10 +68,10 @@ public class Solution7 {
         char[] charArray = s.toCharArray();
         // key：连通分量的代表元，value：同一个连通分量的字符集合（保存在一个优先队列中）
         Map<Integer, PriorityQueue<Character>> hashMap = new HashMap<>(len);
-        for (int i = 0; i < len; i++)
+        for (int i = 0; i < len; i++) {
             int root = unionFind.find(i);
             hashMap.computeIfAbsent(root, key -> new PriorityQueue<>()).offer(charArray[i]);
-
+        }
         // 第 3 步：重组字符串
         StringBuilder stringBuilder = new StringBuilder();
         for (int i = 0; i < len; i++) {

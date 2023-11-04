@@ -47,7 +47,7 @@ class Solution9 {
         }
         for (int[] p : dislikes)
             g[p[0]].add(p[1]);
-            g[p[1]].add(p[0]);
+            //g[p[1]].add(p[0]);
         for (int i = 1; i <= n; ++i) {
             for (int j = 0; j < g[i].size(); ++j) {
                 unit(g[i].get(0), g[i].get(j), fa);
