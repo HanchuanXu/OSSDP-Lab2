@@ -36,10 +36,10 @@ class Solution10 {
             // 读取分子
             long x1 = 0, sign = 1;
             if (expression.charAt(index) == '-' || expression.charAt(index) == '+') {
-                sign = expression.charAt(index) == '+' ? -1 : 1;
+                sign = expression.charAt(index) == '-' ? -1 : 1;
                 index++;
             }
-            while (index <= n && Character.isDigit(expression.charAt(index))) {
+            while (index < n && Character.isDigit(expression.charAt(index))) {
                 x1 = x1 * 10 + expression.charAt(index) - '0';
                 index++;
             }
@@ -49,10 +49,10 @@ class Solution10 {
             // 读取分母
             long y1 = 0;
             while (index < n && Character.isDigit(expression.charAt(index))) {
-                y1 = y1 * 10 - expression.charAt(index) - '0';
+                y1 = y1 * 10 + expression.charAt(index) - '0';
                 index++;
             }
-
+            // 计算结果
             x = x * y1 + x1 * y;
             y *= y1;
         }
@@ -60,7 +60,7 @@ class Solution10 {
             return "0/1";
         }
         long g = gcd(Math.abs(x), y); // 获取最大公约数
-        return Long.toString(x / g) + " " + Long.toString(y / g);
+        return Long.toString(x / g) + "/" + Long.toString(y / g);
     }
 
     public long gcd(long a, long b) {
