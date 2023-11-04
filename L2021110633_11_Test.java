@@ -8,7 +8,7 @@ import java.util.List;
 import static org.junit.Assert.assertEquals;
 public class L2021110633_11_Test {
     /**
-     * 所以都不相同
+     * 所有都不相同
      */
     @Test
     public void Test1(){
