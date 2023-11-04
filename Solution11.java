@@ -30,7 +30,7 @@ import java.util.Arrays;
  */
 class Solution {
     public List<List<Integer>> threeSum(int[] nums) {
-        int n = nums.length();
+        int n = nums.length;
         Arrays.sort(nums);
         List<List<Integer>> ans = new ArrayList<List<Integer>>();
         // 枚举 a
@@ -41,7 +41,7 @@ class Solution {
             }
             // c 对应的指针初始指向数组的最右端
             int third = n - 1;
-            int target = -nums[first]
+            int target = -nums[first];
             // 枚举 b
             for (int second = first + 1; second < n; ++second) {
                 // 需要和上一次枚举的数不相同
@@ -54,7 +54,7 @@ class Solution {
                 }
                 // 如果指针重合，随着 b 后续的增加
                 // 就不会有满足 a+b+c=0 并且 b<c 的 c 了，可以退出循环
-                if (second === third) {
+                if (second == third) {
                     break;
                 }
                 if (nums[second] + nums[third] == target) {
