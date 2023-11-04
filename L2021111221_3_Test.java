@@ -3,6 +3,7 @@ import org.junit.Test;
 import java.util.List;
 
 import static org.junit.Assert.*;
+
 public class L2021111221_3_Test {
     // Testing strategy
     //  根据等价类划分，需要考虑数组大小和最大整除子集大小
@@ -27,7 +28,7 @@ public class L2021111221_3_Test {
     @Test
     //测试多元素数组，最大子集大小为1的情况，令nums为{2，5，7，11，19}，预计结果为{2}
     public void testMultipleElementArraySingleAns() {
-        int[] nums = {2,5,7,11,19};
+        int[] nums = {2, 5, 7, 11, 19};
         Solution3 solution = new Solution3();
         List<Integer> result = solution.largestDivisibleSubset(nums);
         assertArrayEquals(new int[]{2}, result.stream().mapToInt(Integer::intValue).toArray());
@@ -36,10 +37,10 @@ public class L2021111221_3_Test {
     @Test
     //测试多元素数组，最大子集大小介于1到数组大小之间的情况，令nums为{2，5，7，11，15}，预计结果为{5,15}
     public void testMultipleElementArrayMultAns() {
-        int[] nums = {2,5,7,11,15};
+        int[] nums = {2, 5, 7, 11, 15};
         Solution3 solution = new Solution3();
         List<Integer> result = solution.largestDivisibleSubset(nums);
-        assertArrayEquals(new int[]{5,15}, result.stream().mapToInt(Integer::intValue).toArray());
+        assertArrayEquals(new int[]{5, 15}, result.stream().mapToInt(Integer::intValue).toArray());
     }
 
     @Test
@@ -48,16 +49,16 @@ public class L2021111221_3_Test {
         int[] nums = {2, 4, 8, 16, 32};
         Solution3 solution = new Solution3();
         List<Integer> result = solution.largestDivisibleSubset(nums);
-        assertArrayEquals(new int[]{2, 4, 8, 16,32}, result.stream().mapToInt(Integer::intValue).toArray());
+        assertArrayEquals(new int[]{2, 4, 8, 16, 32}, result.stream().mapToInt(Integer::intValue).toArray());
     }
 
     @Test
     //测试数组元素数量庞大的情况
     public void testLargeElement() {
-        int[] nums = {2, 4, 8, 16, 32,64,128,256,512,1024,2048,4096,8192};
+        int[] nums = {2, 4, 8, 16, 32, 64, 128, 256, 512, 1024, 2048, 4096, 8192};
         Solution3 solution = new Solution3();
         List<Integer> result = solution.largestDivisibleSubset(nums);
-        assertArrayEquals(new int[]{2, 4, 8, 16, 32,64,128,256,512,1024,2048,4096,8192}, result.stream().mapToInt(Integer::intValue).toArray());
+        assertArrayEquals(new int[]{2, 4, 8, 16, 32, 64, 128, 256, 512, 1024, 2048, 4096, 8192}, result.stream().mapToInt(Integer::intValue).toArray());
     }
 
 }
