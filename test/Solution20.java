@@ -1,3 +1,5 @@
+package test;
+
 import java.util.*;
 
 /*
@@ -18,7 +20,7 @@ import java.util.*;
  * 输出：[3,4]
 
  */
-class Solution {
+class Solution20 {
     public List<Integer> findMinHeightTrees(int n, int[][] edges) {
         List<Integer> ans = new ArrayList<Integer>();
         if (n == 1) {
