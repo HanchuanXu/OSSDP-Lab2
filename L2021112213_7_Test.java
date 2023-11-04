@@ -9,6 +9,7 @@ public class L2021112213_7_Test {
 
     //测试用例的基本原则；基于需求、场景化、描述精准、可判定、原子化、可回归、独立、正交
     //测试目的：测试算法能否正确运行
+    //测试用例：
     /*
         Test case 1
         输入：s = "dcab", pairs = [[0,3],[1,2]]
@@ -22,6 +23,7 @@ public class L2021112213_7_Test {
     @Test
     public void testSmallestStringWithSwaps() {
         Solution7 yourClass = new Solution7();
+        
 
         /*
         Test case 1

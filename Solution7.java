@@ -37,7 +37,6 @@ import java.util.PriorityQueue;
  * 交换 s[1] 和 s[2], s = "bac"
  * 交换 s[0] 和 s[1], s = "abc"
  *
- *
  * 提示：
  *
  * 1 <= s.length <= 10^5
