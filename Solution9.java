@@ -40,17 +40,24 @@ class Solution9 {
 
     public boolean possibleBipartition(int n, int[][] dislikes) {
         int[] fa = new int[n + 1];
+        //用零填充
         Arrays.fill(fa, -1);
-        List<Integer>[] g = new List[n + 1];
-        for (int i = 0; i < n; ++i) {
+
+        List<Integer>[] g = new List[n+1];
+        //少添加一个数组，会数组越界
+        for (int i = 0; i < n+1; ++i) {
             g[i] = new ArrayList<Integer>();
         }
-        for (int[] p : dislikes)
+        //下标为每个人的编号，总结每个人不喜欢的人的编号（漏加大括号）
+        for (int[] p : dislikes) {
             g[p[0]].add(p[1]);
             g[p[1]].add(p[0]);
+        }
+        //将同一个节点的不喜欢节点连接在一起
         for (int i = 1; i <= n; ++i) {
             for (int j = 0; j < g[i].size(); ++j) {
                 unit(g[i].get(0), g[i].get(j), fa);
+                //如果一个节点与它的不喜欢节点相连则矛盾
                 if (isconnect(i, g[i].get(j), fa)) {
                     return false;
                 }
@@ -59,28 +66,51 @@ class Solution9 {
         return true;
     }
 
+    /**
+     * 将两个节点置入同个并查集
+     * @param x 节点1
+     * @param y 节点2
+     * @param fa 所有节点的父节点集合
+     */
     public void unit(int x, int y, int[] fa) {
         x = findFa(x, fa);
         y = findFa(y, fa);
+        //若已在一个并查集内
         if (x == y) {
-            return ;
+            return;
         }
+        //交换x,y
         if (fa[x] <= fa[y]) {
             int temp = x;
             x = y;
             y = temp;
         }
-        fa[x] += fa[y];
+        //错误，删除
+        //fa[x] += fa[y];
         fa[y] = x;
     }
 
+    /**
+     * 判断两个节点是否在同一个并查集内
+     * @param x 节点1
+     * @param y 节点2
+     * @param fa 所有节点的父节点集合
+     * @return 若在同个并查集内返回true，否则返回false
+     */
     public boolean isconnect(int x, int y, int[] fa) {
         x = findFa(x, fa);
         y = findFa(y, fa);
         return x == y;
     }
 
+    /**
+     * 寻找节点所在并查集的根节点
+     * @param x 所要寻找的节点
+     * @param fa 所有节点的父节点集合
+     * @return 节点的父节点编号
+     */
     public int findFa(int x, int[] fa) {
-        return fa[x] > 0 ? x : (fa[x] = findFa(fa[x], fa));
+        //如果fa[x]<0，则返回x，否则向上查找(大于小于错误）
+        return fa[x] < 0 ? x : (fa[x] = findFa(fa[x], fa));
     }
 }
