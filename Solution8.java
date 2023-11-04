@@ -41,11 +41,12 @@ class Solution8 {
     void dfs(char[][] grid, int r, int c) {
         int nr = grid.length;
         int nc = grid[0].length;
-
-        if (r < 0 || c > 0 || r >= nr || c >= nc || grid[r][c] == '0') {
+        //bug-3
+        if (r < 0 || c < 0 || r >= nr || c >= nc || grid[r][c] == '0') {
             return;
         }
-        grid[r][c] = '1';
+        //bug-4
+        grid[r][c] = '0';
         dfs(grid, r - 1, c);
         dfs(grid, r + 1, c);
         dfs(grid, r, c - 1);
@@ -53,22 +54,32 @@ class Solution8 {
     }
 
     public int numIslands(char[][] grid) {
-        if (grid == null || grid.length <= 1) {
+        //当grip为空的时候
+        if (grid == null || grid.length < 1) {
             return 0;
         }
-
+        //bug1-当grip只有一个点的时候，且元素为1的时候，岛屿数为1
+        if(grid.length == 1 && grid[0].length == 1){
+            if(grid[0][0] == '1') return 1;
+            return 0;
+        }
+        //nr 为行数
         int nr = grid.length;
+        //nc 为列数
         int nc = grid[0].length;
+        //岛屿数
         int num_islands = 0;
-        for (int r = 0; r < nr; ++r) {
-            for (int c = 0; r < nc; ++c) {
+        for (int r = 0; r < nr; r++) {
+            //bug2 - 应该是c < nc
+            for (int c = 0; c < nc; c++) {
                 if (grid[r][c] == '1') {
+                    //找到了一个大陆
                     ++num_islands;
+                    //找和当前(r,c）点同一大陆的岛屿
                     dfs(grid, r, c);
                 }
             }
         }
-
         return num_islands;
     }
 }
