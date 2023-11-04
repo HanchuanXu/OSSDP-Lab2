@@ -1,6 +1,8 @@
 import org.junit.Assert;
 import org.junit.*;
 
+// 用例覆盖比较全面
+
 /**
  * possibleBipartition:
  * 等价类划分： 不能将所有人分成两组 / 能将所有人分成两组
