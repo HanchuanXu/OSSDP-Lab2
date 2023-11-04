@@ -6,12 +6,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 import static org.junit.Assert.assertEquals;
-public class L2021110633_11_Test {
+public class L2021110633_11_Test {//测试类
     /**
      * 所有都不相同
      */
     @Test
-    public void Test1(){
+    public void Test1(){//测试方法
         Solution Solution = new Solution();
         int nums[] = {1,2,3,4,5,6,-1,-2,-3};
         List<List<Integer>> result = Solution.threeSum(nums);
