@@ -70,6 +70,9 @@ class Solution8 {
                     ++num_islands;
                     dfs(grid, r, c);
                 }
+	if(grid[r][c] != '0' && grid[r][c] != '1'){
+                    return 0;
+                }
             }
         }
 
