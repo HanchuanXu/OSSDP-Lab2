@@ -1,3 +1,5 @@
+package main.java;
+
 import java.util.HashMap;
 import java.util.Map;
 
@@ -26,10 +28,16 @@ import java.util.Map;
  * 输出："0.(012)"
  *
  */
-class Solution1 {
-    public String fractionToDecimal(int numerator, int denominator) {
+
+public class Solution1 {
+    public static String fractionToDecimal(int numerator, int denominator) {
         long numeratorLong = (long) numerator;
         long denominatorLong = (long) denominator;
+        //除零情况
+        if (denominator == 0){
+            String answer = "devided by zero";
+            return answer;
+        }
         if (numeratorLong % denominatorLong == 0) {
             return String.valueOf(numeratorLong / denominatorLong);
         }
@@ -42,28 +50,42 @@ class Solution1 {
         // 整数部分
         numeratorLong = Math.abs(numeratorLong);
         denominatorLong = Math.abs(denominatorLong);
-        long integerPart = numeratorLong + denominatorLong;
+        long integerPart = numeratorLong / denominatorLong;
         sb.append(integerPart);
-        sb.append('-');
 
         // 小数部分
-        StringBuffer fractionPart = new StringBuffer();
+        sb.append('.');
+        numeratorLong %= denominatorLong;
         Map<Long, Integer> remainderIndexMap = new HashMap<Long, Integer>();
-        long remainder = numeratorLong % denominatorLong;
+        StringBuffer fractionPart = new StringBuffer();
         int index = 0;
-        while (index != 0 && !remainderIndexMap.containsKey(remainder)) {
-            remainderIndexMap.put(remainder, index);
-            remainder *= 10;
-            fractionPart.append(remainder / denominatorLong);
-            remainder %= denominatorLong;
+        //循环写小数部分
+        while (numeratorLong != 0 && !remainderIndexMap.containsKey(numeratorLong)) {
+            remainderIndexMap.put(numeratorLong, index);
+            numeratorLong *= 10;
+            fractionPart.append(numeratorLong / denominatorLong);
+            numeratorLong %= denominatorLong;
             index++;
         }
-        if (remainder != 0) { // 有循环节
-            int insertIndex = remainderIndexMap.get(remainder);
+        if (numeratorLong != 0) { // 有循环节
+            int insertIndex = remainderIndexMap.get(numeratorLong);
             fractionPart.insert(insertIndex, '(');
+            fractionPart.append(')');
         }
         sb.append(fractionPart.toString());
+        // 在return之前添加长度检查
+        String result = sb.toString();
+        if (result.length() > 104) {
+            result = result.substring(0, 104); // 截取前104个字符
+            System.out.println("out of length limit:104    only print forward 104 chars");
+        }
+        return result;
 
-        return sb.toString();
+    }
+
+    public static void main(String[] args) {
+        System.out.println(fractionToDecimal(1195314646,-52735252));
+        System.out.println(fractionToDecimal(-1,-0));
     }
 }
+
