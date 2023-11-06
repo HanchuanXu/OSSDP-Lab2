@@ -1,10 +1,10 @@
 import org.junit.Assert;
 import org.junit.Test;
 
-public class L2021110221_10_Test {
+public class L2021110221_10_Test {//测试类
 
     @Test
-    public void testFractionAddition() {
+    public void testFractionAddition() {//测试用例
         Solution10 solution = new Solution10();
 
         // 测试样例 1: "-1/2+1/2"
