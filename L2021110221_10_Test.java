@@ -1,7 +1,7 @@
 import org.junit.Assert;
 import org.junit.Test;
 
-public class Solution10Test {
+public class L2021110221_10_Test {
 
     @Test
     public void testFractionAddition() {
