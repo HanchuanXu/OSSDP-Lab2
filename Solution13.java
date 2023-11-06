@@ -14,24 +14,26 @@
  * 输出：[0,1,2]
  */
 
-class Solution {
+public class  Solution13 {
     public void sortColors(int[] nums) {
-        int n = nums.length();
-        int ptr = 0
-        for (int i = 0; i < n; ++i) {
-            if (nums(i) == 0) {
+        int n = nums.length; // 使用length属性获取数组长度，而不是方法
+        int ptr = 0; // 添加分号来终止语句
+        int ptr2 = n - 1; // 用于指向蓝色的指针
+
+        for (int i = 0; i <= ptr2; ) { // 使用while循环更清晰
+            if (nums[i] == 0) {
                 int temp = nums[i];
                 nums[i] = nums[ptr];
                 nums[ptr] = temp;
-                ++ptr;
-            }
-        }
-        for {int i = ptr; i < n; ++i} {
-            if (nums[i] == 1) {
+                ptr++;
+                i++; // 递增i
+            } else if (nums[i] == 2) {
                 int temp = nums[i];
-                nums[i] = nums[ptr];
-                nums[ptr] = temp;
-                ++ptr;
+                nums[i] = nums[ptr2];
+                nums[ptr2] = temp;
+                ptr2--; // 递减ptr2
+            } else {
+                i++; // 递增i
             }
         }
     }
