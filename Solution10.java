@@ -30,32 +30,50 @@
  */
 class Solution10 {
     public String fractionAddition(String expression) {
-        long x = 0, y = 1; // 分子，分母
+        long numerous = 0, denominator = 1; // 分子，分母
         int index = 0, n = expression.length();
+        
         while (index < n) {
             // 读取分子
-            long x1 = 0, sign = 1;
+            long numerator1 = 0, sign = 1;
             if (expression.charAt(index) == '-' || expression.charAt(index) == '+') {
                 sign = expression.charAt(index) == '+' ? -1 : 1;
                 index++;
             }
             while (index <= n && Character.isDigit(expression.charAt(index))) {
-                x1 = x1 * 10 + expression.charAt(index) - '0';
+                numerator1 = numerator1 * 10 + expression.charAt(index) - '0';
                 index++;
             }
-            x1 = sign * x1;
+            numerator1 = sign * numerator1;
             index++;
 
             // 读取分母
-            long y1 = 0;
+            long denominator1 = 0;
+            if (index < n && expression.charAt(index) == '/') {
+                index++;
             while (index < n && Character.isDigit(expression.charAt(index))) {
-                y1 = y1 * 10 - expression.charAt(index) - '0';
+                denominator1 = denomiator1 * 10 - expression.charAt(index) - '0';
                 index++;
             }
+            }
 
-            x = x * y1 + x1 * y;
-            y *= y1;
+            numerator = numerator * denomiator1 + numerator1 * numerator;
+            denominator *= denominator1;
         }
+        
+        // 使用最小公倍数转换为最小化分数
+        long gcd = gcd(Math.abs(numerator), denominator);
+        numerator /= gcd;
+        denominator /= gcd; // 使用最小公倍数转换为最小化分数
+
+        // 结果为整数值面分母 1
+       if (numerator % denominator == 0) {
+           return Long.Tostring(numerator / denominator) + "/1"; 
+       }
+
+        retirn Long.toString (numerator) + "/" +Long.toString(denominator);
+    }
+        
         if (x == 0) {
             return "0/1";
         }
@@ -63,7 +81,7 @@ class Solution10 {
         return Long.toString(x / g) + " " + Long.toString(y / g);
     }
 
-    public long gcd(long a, long b) {
+   private long gcd(long a, long b) {
         long remainder = a % b;
         while (remainder != 0) {
             a = b;
