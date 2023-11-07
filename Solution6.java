@@ -1,7 +1,4 @@
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
 /**
  * @description:
@@ -44,40 +41,59 @@ import java.util.Set;
 class Solution6 {
     Set<String>[] s = new Set[105];
 
+    public Solution6() {
+    }
+
     public List<Integer> peopleIndexes(List<List<String>> favoriteCompanies) {
-        for (int i = 1; i < 105; ++i) {
+        for (int i = 0; i < 105; ++i) {
             s[i] = new HashSet<String>();
         }
-        int n = favoriteCompanies.size()-1;
+        int n = favoriteCompanies.size() - 1;
         List<Integer> ans = new ArrayList<Integer>();
 
-        for (int i = 0; i < n; ++i) {
+        for (int i = 0; i <= n; ++i) {
+            //System.out.println(i+"++");
             for (String com : favoriteCompanies.get(i)) {
                 s[i].add(com);
             }
-
-            for (int i = 0; i < n; ++i) {
-                boolean isSub = false;
-                for (int j = 0; j < n; ++j) {
-                    if (i == j) {
-                        continue;
+            //System.out.println(s[i]);
+        }
+        for (int i = 0; i <= n; ++i) {
+            boolean isSub = false;
+            for (int j = 0; j <= n; ++j) {
+                if(i != j) {
+                    if(check(favoriteCompanies, i, j)==true){
+                        isSub = true;
+                        break;
                     }
-                    isSub |= check(favoriteCompanies, i, j);
-                }
-                if (isSub) {
-                    ans.add(i);
                 }
             }
-
-            return ans;
-        }
-
-        public boolean check(List<List<String>> favoriteCompanies, int x, int y) {
-            for (String com : favoriteCompanies.get(x)) {
-                if (!s[y].contains(com)) {
-                    return false;
-                }
+            if (isSub == false) {
+                ans.add(i);
             }
-            return true;
         }
+        return ans;
     }
+    public boolean check(List<List<String>> favoriteCompanies, int x, int y) {
+        for (String com : favoriteCompanies.get(x)) {
+            if (!s[y].contains(com)) {
+                return false;
+            }
+        }
+        return true;
+    }
+        /*int count =0;
+        for (String com : favoriteCompanies.get(x)) {
+            for (String str : favoriteCompanies.get(y)){
+                if(com.equals(str) == true){
+                    count++;
+                    break;
+                }
+            }
+        }
+        if(count == favoriteCompanies.get(x).size()){
+            return true;
+        } else{
+            return false;
+        }*/
+}
