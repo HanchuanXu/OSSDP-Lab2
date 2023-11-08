@@ -27,37 +27,48 @@ import java.util.Arrays;
  * 0 <= nums[i] <= 109
  *
  */
-class Solution4 {
+public class Solution4 {
     public int maximumGap(int[] nums) {
 
-        int n = nums.length - 1;
+        int n = nums.length;
         if (n < 2) {
             return 0;
         }
         long exp = 1;
         int[] buf = new int[n];
-        int maxVal = Arrays.stream(nums).max().getAsInt();
+        int maxVal = Arrays.stream(nums).max().getAsInt();  //获得数组里的最大值
+        int minVal = Arrays.stream(nums).min().getAsInt();  //获取数组里的最小值
 
-        while (maxVal > exp) {
+        if( n < 1 || n > 105 ) //处理不合法性
+            return -1;
+
+        if( maxVal > 109 )  //处理不合法性
+            return -1;
+
+        if( minVal < 0)  //处理不合法性
+            return -1;
+
+        while (maxVal >= exp) {
             int[] cnt = new int[10];
             for (int i = 0; i < n; i++) {
-                int digit = (nums[i] / (int) exp) % 10;
+                int digit = (nums[i] / (int) exp) % 10;      //1.模10看个位
                 cnt[digit]++;
             }
             for (int i = 1; i < 10; i++){
-                cnt[i] += cnt[i - 1];
+                cnt[i] += cnt[i - 1];}  //cnt[i]表示前面包括自己一共有几个数
             for (int i = n - 1; i >= 0; i--) {
                 int digit = (nums[i] / (int) exp) % 10;
-                buf[cnt[digit] - 1] = nums[i];
+                buf[cnt[digit] - 1] = nums[i];   //cnt[digit] - 1：按个位数排列的第几-1
                 cnt[digit]--;
             }
             System.arraycopy(buf, 0, nums, 0, n);
-            exp += 10;
+            exp *= 10;
         }
 
         int ret = 0;
-            for (int i = 1; i < n; i++) {
+        for (int i = 1; i < n; i++) {
             ret = Math.max(ret, nums[i] - nums[i - 1]);
         }return ret;
     }
 }
+
