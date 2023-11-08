@@ -16,8 +16,5 @@ public class L2021113669_X_Test extends Solution20
         a.add(1);
         assertEquals(a, findMinHeightTrees(4, new int[][]{{1,0},{1,2},{1,3}})); 
           
-    }
-
-   
-    
+    }   
 }

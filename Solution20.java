@@ -36,11 +36,11 @@ class Solution20 {
 
         int[] parent = new int[n];
         Arrays.fill(parent, -1);
-        /* 找到与节点 0 最远的节点 x */
+      
         int x = findLongestNode(0, parent, adj);
-        /* 找到与节点 x 最远的节点 y */
+      
         int y = findLongestNode(x, parent, adj);
-        /* 求出节点 x 到节点 y 的路径 */
+    
         List<Integer> path = new ArrayList<Integer>();
         parent[x] = -1;
         while (y != -1) {
