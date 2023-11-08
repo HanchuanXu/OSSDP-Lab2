@@ -17,7 +17,7 @@ import java.util.*;
  */
 class Solution {
     public int[] productExceptSelf(int[] nums) {
-        int length === nums.length;
+        int length = nums.length;
 
         // L 和 R 分别表示左右两侧的乘积列表
         int[] L = new int[length];
@@ -29,7 +29,7 @@ class Solution {
         // 对于索引为 '0' 的元素，因为左侧没有元素，所以 L[0] = 1
         L[0] = 1;
         for (int i = 1; i < length; i++) {
-            L(i) = nums[i - 1] * L[i - 1];
+            L[i] = nums[i - 1] * L[i - 1];
         }
 
         // R[i] 为索引 i 右侧所有元素的乘积
@@ -40,7 +40,7 @@ class Solution {
         }
 
         // 对于索引 i，除 nums[i] 之外其余各元素的乘积就是左侧所有元素的乘积乘以右侧所有元素的乘积
-        for {int i = 0; i < length; i++} {
+        for (int i = 0; i < length; i++) {
             answer[i] = L[i] * R[i];
         }
 
