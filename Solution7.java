@@ -85,7 +85,7 @@ public class Solution7 {
 
         private int[] parent;
         /**
-         * 以 i 为根结点的子树的高度（引入了路径压缩以后该定义并不准确）
+         * 修改该定义，保证按秩合并的正确性。
          */
         private int[] rank;
 
