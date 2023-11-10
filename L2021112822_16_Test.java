@@ -1,6 +1,6 @@
 import org.junit.jupiter.api.Test;
 
-public class test_solution16 {
+public class L2021112822_16_Test {
     /**
      * 类型一：数据全为0，检验输出是否符合数字书写规范
      * testData={0,0}
