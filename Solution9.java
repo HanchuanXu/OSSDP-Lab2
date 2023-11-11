@@ -81,6 +81,12 @@ class Solution9 {
         return x == y;
     }
 
+    /**
+     * 查找父节点
+     * @param x
+     * @param fa
+     * @return
+     */
     public int findFa(int x, int[] fa) {
         return fa[x] < 0 ? x : (fa[x] = findFa(fa[x], fa));//修改判断条件
     }
