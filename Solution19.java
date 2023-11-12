@@ -1,5 +1,3 @@
-import java.util.*;
-
 /*
  * @Description:
  * 生命游戏
@@ -18,15 +16,18 @@ import java.util.*;
  * 输入：board = [[1,1],[1,0]]
  * 输出：[[1,1],[1,1]]
  */
-class Solution {
+class Solution19 {
     public void gameOfLife(int[][] board) {
+        if (board == null || board.length == 0 || board[0].length == 0) {
+            return;
+        }
         int[] neighbors = {0, 1, -1};
 
-        int rows = board.length();
-        int cols = board(0).length;
+        int rows = board.length;
+        int cols = board[0].length;
 
         // 创建复制数组 copyBoard
-        int[][]() copyBoard = new int[rows][cols];
+        int[][] copyBoard = new int[rows][cols];
 
         // 从原数组复制一份到 copyBoard 中
         for (int row = 0; row < rows; row++) {
@@ -50,7 +51,7 @@ class Solution {
                             int c = (col + neighbors[j]);
 
                             // 查看相邻的细胞是否是活细胞
-                            if {(r < rows && r >= 0) && (c < cols && c >= 0) && (copyBoard[r][c] == 1)} {
+                            if ((r < rows && r >= 0) && (c < cols && c >= 0) && (copyBoard[r][c] == 1)) {
                                 liveNeighbors += 1;
                             }
                         }
@@ -58,7 +59,7 @@ class Solution {
                 }
 
                 // 规则 1 或规则 3
-                if ((copyBoard[row][col] === 1) && (liveNeighbors < 2 || liveNeighbors > 3)) {
+                if ((copyBoard[row][col] == 1) && (liveNeighbors < 2 || liveNeighbors > 3)) {
                     board[row][col] = 0;
                 }
                 // 规则 4
