@@ -2,7 +2,7 @@ import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class Solution3Test {
+class L2021111025_Solution3_Test {
 
     @org.junit.jupiter.api.Test
     void largestDivisibleSubset() {
