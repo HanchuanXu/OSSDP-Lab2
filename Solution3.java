@@ -1,5 +1,6 @@
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
 /**
@@ -36,12 +37,12 @@ class Solution3 {
         Arrays.sort(nums);
 
         // 第 1 步：动态规划找出最大子集的个数、最大子集中的最大整数
-        int[] dp = new int[len];
+        int[] dp = new int[len + 1];
         Arrays.fill(dp, 1);
         int maxSize = 1;
         int maxVal = dp[0];
-        for (int i = 1; i < len; i++) {
-            for (int j = 1; j < i; j++) {
+        for (int i = 1; i <= len; i++) {
+            for (int j = 0; j < i; j++) {
                 // 题目中说「没有重复元素」很重要
                 if (nums[i] % nums[j] == 0) {
                     dp[i] = Math.max(dp[i], dp[j] + 1);
@@ -50,7 +51,7 @@ class Solution3 {
 
             if (dp[i] > maxSize) {
                 maxSize = dp[i];
-                maxVal = i;
+                maxVal = nums[i];
             }
         }
 
@@ -68,6 +69,7 @@ class Solution3 {
                 maxSize--;
             }
         }
+        Collections.reverse(res);
         return res;
     }
 }
