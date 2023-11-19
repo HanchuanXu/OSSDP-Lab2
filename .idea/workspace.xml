@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="7b7ac785-b3b3-4271-b915-439b09be0b5d" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/Lab2/L2021112989_8_Test.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Lab2/Solution8.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Solution1.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Solution10.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Solution11.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Solution12.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Solution13.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Solution14.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Solution15.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Solution16.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Solution17.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Solution18.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Solution19.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Solution2.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Solution20.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Solution3.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Solution4.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Solution5.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Solution6.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Solution7.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Solution8.java" beforeDir="false" afterPath="$PROJECT_DIR$/Solution8.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Solution9.java" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="JUnit4 Test Class" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="2YKSuTM8M3Efp91OlyfadVPIZFB" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "Downloaded.Files.Path.Enabled": "false",
+    "Repository.Attach.Annotations": "false",
+    "Repository.Attach.JavaDocs": "false",
+    "Repository.Attach.Sources": "false",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit4",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit4": "",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "reference.settingsdialog.IDE.editor.colors.Color Scheme Font",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="Lab2" />
+    </key>
+    <key name="CreateTestDialog.Recents.Supers">
+      <recent name="" />
+    </key>
+    <key name="CreateTestDialog.RecentsKey">
+      <recent name="Lab2" />
+      <recent name="" />
+    </key>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="7b7ac785-b3b3-4271-b915-439b09be0b5d" name="Changes" comment="" />
+      <created>1700273001123</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1700273001123</updated>
+      <workItem from="1700273003634" duration="222000" />
+      <workItem from="1700273235817" duration="161000" />
+      <workItem from="1700273425888" duration="1619000" />
+      <workItem from="1700390217792" duration="2541000" />
+      <workItem from="1700392788331" duration="8502000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
+  </component>
+</project>
