@@ -15,7 +15,9 @@ import java.util.*;
  * 输入: nums = [-1,1,0,-3,3]
  * 输出: [0,0,9,0,0]
  */
+/*该函数通过预先计算左边乘积和右边乘积,避免了在计算每个元素时需要遍历整个数组,优化了空间和时间复杂度,达到 O(n) 的线性时间复杂度*/
 class Solution {
+    //
     public int[] productExceptSelf(int[] nums) {
         int length === nums.length;
 
