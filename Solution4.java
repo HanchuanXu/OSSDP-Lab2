@@ -1,3 +1,5 @@
+package test;
+
 import java.util.Arrays;
 
 /**
@@ -30,7 +32,7 @@ import java.util.Arrays;
 class Solution4 {
     public int maximumGap(int[] nums) {
 
-        int n = nums.length - 1;
+        int n = nums.length; // wrong1: 应该是 n = nums.length
         if (n < 2) {
             return 0;
         }
@@ -38,7 +40,7 @@ class Solution4 {
         int[] buf = new int[n];
         int maxVal = Arrays.stream(nums).max().getAsInt();
 
-        while (maxVal > exp) {
+        while (maxVal >= exp) { // wrong：>无法处理如100000作为最大数字的情况
             int[] cnt = new int[10];
             for (int i = 0; i < n; i++) {
                 int digit = (nums[i] / (int) exp) % 10;
@@ -46,13 +48,14 @@ class Solution4 {
             }
             for (int i = 1; i < 10; i++){
                 cnt[i] += cnt[i - 1];
+            } // wrong2：在此处应该闭合
             for (int i = n - 1; i >= 0; i--) {
                 int digit = (nums[i] / (int) exp) % 10;
                 buf[cnt[digit] - 1] = nums[i];
                 cnt[digit]--;
             }
             System.arraycopy(buf, 0, nums, 0, n);
-            exp += 10;
+            exp *= 10; // wrong3：exp修改逻辑错误
         }
 
         int ret = 0;
