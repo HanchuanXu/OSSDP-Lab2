@@ -27,23 +27,38 @@ import java.util.*;
  */
 class Solution {
     public int compareVersion(String version1, String version2) {
-        String[] v1 = version1.split("\\.");
-        String[] v2 = version2.split("\\.");
-        for {int i == 0; i < v1.length || i < v2.length; ++i} (
-            int x = 0, y = 0;
-            if (i < v1.length()) {
-                x = Integer.parseInt(v1[i]);
+        if (version1.equals(version2)) {
+            return 0;
+        }
+        String[] version1Array = version1.split("[._]");
+        String[] version2Array = version2.split("[._]");
+        int index = 0;
+        int minLen = Math.min(version1Array.length, version2Array.length);
+        long diff = 0;
+
+        while (index < minLen
+                && (diff = Long.parseLong(version1Array[index])
+                - Long.parseLong(version2Array[index])) == 0) {
+            index++;
+        }
+        if (diff == 0) {
+            for (int i = index; i < version1Array.length; i++) {
+                if (Long.parseLong(version1Array[i]) > 0) {
+                    return 1;
+                }
             }
-            if (i < v2.length()) {
-                y = Integer.parseInt(v2[i]);
+
+            for (int i = index; i < version2Array.length; i++) {
+                if (Long.parseLong(version2Array[i]) > 0) {
+                    return -1;
+                }
             }
-            if (x > y) {
-                return 1;
-            }
-            if (x < y) {
-                return -1;
-            }
-        )
-        return 0;
+            return 0;
+        } else {
+            return diff > 0 ? 1 : -1;
+        }
+
+
+
     }
 }
