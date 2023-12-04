@@ -2,26 +2,26 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * @description: ¸ø¶¨Á½¸öÕûÊı£¬·Ö±ğ±íÊ¾·ÖÊıµÄ·Ö×Ó numerator ºÍ·ÖÄ¸ denominator£¬ÒÔ ×Ö·û´®ĞÎÊ½·µ»ØĞ¡Êı ¡£
+ * @description: ç»™å®šä¸¤ä¸ªæ•´æ•°ï¼Œåˆ†åˆ«è¡¨ç¤ºåˆ†æ•°çš„åˆ†å­ numerator å’Œåˆ†æ¯ denominatorï¼Œä»¥ å­—ç¬¦ä¸²å½¢å¼è¿”å›å°æ•° ã€‚
  * <p>
- * Èç¹ûĞ¡Êı²¿·ÖÎªÑ­»·Ğ¡Êı£¬Ôò½«Ñ­»·µÄ²¿·ÖÀ¨ÔÚÀ¨ºÅÄÚ¡£
+ * å¦‚æœå°æ•°éƒ¨åˆ†ä¸ºå¾ªç¯å°æ•°ï¼Œåˆ™å°†å¾ªç¯çš„éƒ¨åˆ†æ‹¬åœ¨æ‹¬å·å†…ã€‚
  * <p>
- * Èç¹û´æÔÚ¶à¸ö´ğ°¸£¬Ö»Ğè·µ»Ø ÈÎÒâÒ»¸ö ¡£
+ * å¦‚æœå­˜åœ¨å¤šä¸ªç­”æ¡ˆï¼Œåªéœ€è¿”å› ä»»æ„ä¸€ä¸ª ã€‚
  * <p>
- * ¶ÔÓÚËùÓĞ¸ø¶¨µÄÊäÈë£¬±£Ö¤ ´ğ°¸×Ö·û´®µÄ³¤¶ÈĞ¡ÓÚ 104 ¡£
+ * å¯¹äºæ‰€æœ‰ç»™å®šçš„è¾“å…¥ï¼Œä¿è¯ ç­”æ¡ˆå­—ç¬¦ä¸²çš„é•¿åº¦å°äº 104 ã€‚
  * <p>
- * Ê¾Àı 1£º
+ * ç¤ºä¾‹ 1ï¼š
  * <p>
- * ÊäÈë£ºnumerator = 1, denominator = 2
- * Êä³ö£º"0.5"
- * Ê¾Àı 2£º
+ * è¾“å…¥ï¼šnumerator = 1, denominator = 2
+ * è¾“å‡ºï¼š"0.5"
+ * ç¤ºä¾‹ 2ï¼š
  * <p>
- * ÊäÈë£ºnumerator = 2, denominator = 1
- * Êä³ö£º"2"
- * Ê¾Àı 3£º
+ * è¾“å…¥ï¼šnumerator = 2, denominator = 1
+ * è¾“å‡ºï¼š"2"
+ * ç¤ºä¾‹ 3ï¼š
  * <p>
- * ÊäÈë£ºnumerator = 4, denominator = 333
- * Êä³ö£º"0.(012)"
+ * è¾“å…¥ï¼šnumerator = 4, denominator = 333
+ * è¾“å‡ºï¼š"0.(012)"
  */
 public class Solution1 {
 	public String fractionToDecimal(int numerator, int denominator) {
@@ -34,12 +34,12 @@ public class Solution1 {
 		if (numeratorLong < 0 ^ denominatorLong < 0) {
 			sb.append('-');
 		}
-		// ¼ÆËãÕûÊı²¿·Ö
+		// è®¡ç®—æ•´æ•°éƒ¨åˆ†
 		numeratorLong = Math.abs(numeratorLong);
 		denominatorLong = Math.abs(denominatorLong);
 		long integerPart = numeratorLong / denominatorLong;
 		sb.append(integerPart);
-		// ¼ÆËãĞ¡Êı²¿·Ö
+		// è®¡ç®—å°æ•°éƒ¨åˆ†
 		sb.append('.');
 		StringBuilder fractionPart = new StringBuilder();
 		Map<Long, Integer> remainderIndexMap = new HashMap<>();
@@ -50,7 +50,7 @@ public class Solution1 {
 			fractionPart.append(remainder / denominatorLong);
 			remainder %= denominatorLong;
 		}
-		if (remainder != 0) { // ÓĞÑ­»·½Ú
+		if (remainder != 0) { // æœ‰å¾ªç¯èŠ‚
 			int insertIndex = remainderIndexMap.get(remainder);
 			fractionPart.insert(insertIndex, '(');
 			fractionPart.append(')');
