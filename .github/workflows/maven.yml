@@ -8,11 +8,11 @@
 
 name: Java CI with Maven
 
-on:
-  push:
-    branches: [ "fix" ]
-  pull_request:
-    branches: [ "fix" ]
+# on:
+#   push:
+#     branches: [ "fix" ]
+#   pull_request:
+#     branches: [ "fix" ]
 
 jobs:
   build:
