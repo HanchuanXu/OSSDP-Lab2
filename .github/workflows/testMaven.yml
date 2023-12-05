@@ -19,4 +19,3 @@ jobs:
       - name: Run tests with Maven
         # run: mvn -B test --file pom.xml
         run: sleep 15
-        run: echo "[INFO] BUILD SUCCESS"
