@@ -16,6 +16,7 @@ jobs:
           path: ~/.m2
           key: ${{ runner.os }}-m2-${{ hashFiles('**/pom.xml') }}
           restore-keys: ${{ runner.os }}-m2
+      - name: Run sleep
+        run: sleep 10
       - name: Run tests with Maven
-        # run: mvn -B test --file pom.xml
-        run: sleep 15
+        run: mvn -B test --file pom.xml
