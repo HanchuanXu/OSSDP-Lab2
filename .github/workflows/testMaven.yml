@@ -20,3 +20,15 @@ jobs:
         run: sleep 10
       - name: Run tests with Maven
         run: mvn -B test --file pom.xml
+      - name: checkout
+        if: success()
+        uses: actions/checkout@v2
+      - name: merge
+        if: success()
+        uses: mtanzi/action-automerge@v1
+        id: merge
+        with:
+          github_token: ${{ github.token }}
+          source: 'fix'
+          target: 'main'
+          # webhook_url: #if present add the Slack webhook
