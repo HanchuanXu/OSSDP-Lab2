@@ -22,6 +22,5 @@ public class L2021110773_1_Test {
 		Assert.assertEquals("0.5", solution1.fractionToDecimal(1, 2));
 		Assert.assertEquals("2", solution1.fractionToDecimal(2, 1));
 		Assert.assertEquals("0.(012)", solution1.fractionToDecimal(4, 333));
-		Assert.assertNotEquals("0.(012)", solution1.fractionToDecimal(4, 333));
 	}
 }
